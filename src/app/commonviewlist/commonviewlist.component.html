@@ -1,0 +1,133 @@
+<!-- <p style="color: grey; ">Transformer</p>
+<div class="card">
+  <p-tabView styleClass="tabview-custom">
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span >List</span>  <span >List</span>
+    
+       
+      </ng-template>
+      <p>
+        <p-table #dt [columns]="header" [paginator]="true" [rows]="10" [value]="transformerData"
+          [exportHeader]="'customExportHeader'"   [tableStyle]="{ 'min-width': '50rem' }"[resizableColumns]="true" [reorderableColumns]="true" [selectionMode]="'multiple'"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+          <ng-template pTemplate="header" let-columns>
+            <tr style="border: 2px solid #c2c2c2;">
+              <th style="width: 4rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th pSortableColumn="name" style="color: #123456;">Area <p-sortIcon field="Name"></p-sortIcon>
+              </th>
+              <th>Location</th>
+              <th>Serial No</th>
+              <th>Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-transformerData>
+            <tr [pSelectableRow]="transformerData" style="border: 2px solid #e6e6e6;">
+              <td>
+                <p-tableRadioButton [value]="transformerData"></p-tableRadioButton>
+              </td>
+              <td>
+                <a href="">{{transformerData.Area}}</a>
+              </td>
+              <td>{{transformerData.Location}}</td>
+              <td>{{transformerData.SerialNo}}</td>
+              <td>
+                <a href="master/viewtransformers"><i  class="pi pi-eye" style="font-size: 1.5rem;font-weight: 700; color: black;"></i></a><br>
+              
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p>
+    </p-tabPanel>
+  </p-tabView>
+</div> -->
+
+
+
+
+<p-toast></p-toast>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+<p-toolbar styleClass="mb-4 gap-2" *ngIf="showFullInfo">
+    <ng-template pTemplate="left">
+       <h3>{{fakeName}}</h3>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+      <button pButton pRipple label="New" icon="pi pi-plus" *ngIf="insertpermisson.permission_insert=='y'" [disabled]="selectedProducts.length>0" class="p-button-primary mr-2" (click)="addTransformer()" ></button>
+      <button pButton pRipple  icon="pi pi-trash" *ngIf="insertpermisson.permission_delete=='y'" (click)="deleteSelectedProducts()" class="p-button-danger mr-2"  [disabled]="!selectedProducts || !selectedProducts.length"></button>
+     <button pButton pRipple icon="pi pi-pencil" *ngIf="insertpermisson.permission_update=='y'" (click)="edit(selectedProducts)"   [disabled]="selectedProducts.length>1 ||selectedProducts.length==0" class="p-button-primary"></button>
+     <!-- <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input pInputText type="text"  (input)="dt.filterGlobal($event.value, 'contains')"  placeholder="Global Search" />
+  </span> -->
+    </ng-template>
+    
+</p-toolbar>
+
+<p-table *ngIf="showFullInfo" styleClass="p-datatable-striped"
+#dt
+[value]="keyvalue"
+[rows]="3"
+[paginator]="true"
+
+[tableStyle]="{ 'min-width': '75rem' }"
+[rowHover]="true"
+[(selection)]="selectedProducts"
+[showCurrentPageReport]="true"
+[globalFilterFields]="['value','value2','value']"
+>
+<ng-template pTemplate="caption">
+  <div class="flex">
+     
+      <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (keyup)="test($event.target)" placeholder="Search keyword" />
+      </span>
+  </div>
+</ng-template>
+<ng-template pTemplate="header">
+  <tr >
+    <th style="width: 4rem">
+      <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+    </th>
+   <th>{{heading.key11}}</th>
+   <th>{{heading.key22}}</th>
+   <th>{{heading.key33}}</th>
+   
+   
+    <!-- <th pSortableColumn="name" style="color: #123456;" *ngFor=" let head of heading"  >{{head.key1 |uppercase}} <p-sortIcon field="Name"></p-sortIcon>
+    </th> -->
+ 
+    <th>Action</th>
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-keyvalue>
+  <tr >
+    <td>
+      <p-tableCheckbox [value]="keyvalue"></p-tableCheckbox>
+  </td>
+    <td  >{{keyvalue.value}} </td>
+    <td>{{keyvalue.value1}}</td>
+    <td>{{keyvalue.value2}}</td>
+    <td>
+      <i (click)="view(keyvalue)"  class="pi pi-eye" style="font-size: 1.5rem;font-weight: 700; color: black;"></i><br>
+    
+    </td>
+  </tr>
+
+ 
+</ng-template>
+
+</p-table>
+<app-userdetails *ngIf="navigateuser" (officesChanged)="view($event)" [keyvalueArray]="keyvalueArray" (changeToTableView)="onChangeToTableView()"></app-userdetails>
+<app-officedetails *ngIf="navigateoffice" (officesChanged)="view($event)" [dataToEmit]="dataToEmit" (changeToTableView)="onChangeToTableView()"></app-officedetails>
+<app-commonviewdetails (officesChanged)="view($event)" *ngIf="showFullInfocommon" [keyvalueArray]="keyvalueArray" (changeToTableView)="onChangeToTableView()"></app-commonviewdetails>
+
+
+
+
+
+

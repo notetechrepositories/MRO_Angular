@@ -1,0 +1,14 @@
+.blue-text{
+color: rgb(41, 41, 235);
+}
+.red-text{
+  color: red;
+}
+.yellow-text{
+color:rgb(184, 184, 24);
+}
+
+.status-text{
+color: rgb(255, 0, 0);
+background-color:#f8f9fa;
+}

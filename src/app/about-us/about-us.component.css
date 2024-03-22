@@ -1,0 +1,27 @@
+.about-text{
+font-weight: 250;
+font-size: large;
+}
+.name{
+font-size: large;
+color: rgb(241, 46, 46);
+font-weight: bold;
+margin-bottom: 2%;
+}
+.sub{
+font-size: small;
+color: grey;
+margin-bottom: 0%;
+}
+.support{
+font-size: large;
+color: black;
+margin-bottom: 2%;
+
+}
+.card{
+padding-left: 3%;
+padding-top: 3%;
+margin-top: 3%;
+background-color: rgb(224, 224, 224);
+}

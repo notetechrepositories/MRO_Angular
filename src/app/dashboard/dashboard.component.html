@@ -1,0 +1,72 @@
+<div *ngIf="cardVisible" class="card">
+  <div class="card-welcome">
+    <span class="card-title"> <li style="float: left; list-style-type: none; margin-left: 10;">👋 Hello! Welcome to Transformer Tracker! </li>
+    </span>
+    <button class="close-icon" (click)="closeCard()">X</button>
+  </div>
+</div>
+
+<div class="container-fluid" >
+  
+  <a class="card1 col-md-8" *ngFor="let menuItem of menuDatas" 
+  [routerLink]="'/master/' + menuItem.navigatorWithPgmId ">
+   <h3>{{ menuItem.menu_name }}</h3>
+
+   <p class="small"></p>
+   <div class="go-corner" href="#">
+     <div class="go-arrow">
+       →
+     </div>
+   </div>
+</a>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <span class="card-3">
+    <h6>Graph Name</h6>
+    <p-chart type="line" [data]="data" [options]="options"></p-chart>
+  </span>
+  <span class="card-2">
+    <div class="card-body">
+      <h6>Transformer Available</h6> -->
+      
+      
+<!-- <div class=" flex justify-content-center">
+  <p-scroller [items]="items" [itemSize]="80" scrollHeight="500px" styleClass="border-1 surface-border" [style]="{'width': '340px', 'height': '200px'}">
+      <ng-template pTemplate="item" let-item let-options="options">
+          <div class="flex align-items-center p-2" [ngClass]="{ 'surface-ground': options.odd }" style="height: 50px;">{{ item }}</div>
+      </ng-template>
+  </p-scroller>
+</div>
+    </div>
+
+  </span>
+  <span class="card-2">
+    <div class="card-body">
+      <h6>Transformer Seclected</h6>
+    </div>
+  </span>
+</div> -->
+
+<!-- <p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="Available" targetHeader="Selected" [dragdrop]="true" [responsive]="true" [sourceStyle]="{ height: '30rem' }"
+    [targetStyle]="{ height: '30rem' }" filterBy="name" sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name" breakpoint="1400px"> -->
+    <!-- <ng-template let-product pTemplate="item">
+        <div class="flex flex-wrap p-2 align-items-center gap-3">
+            <img class="w-4rem shadow-2 flex-shrink-0 border-round" src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" alt="{item.name}" />
+            <div class="flex-1 flex flex-column gap-2">
+                <span class="font-bold">{{ product.name }}</span>
+                <div class="flex align-products-center gap-2">
+                    <i class="pi pi-tag text-sm"></i>
+                    <span>{{ product.category }}</span>
+                </div>
+            </div>
+            <span class="font-bold text-900">{{ '$' + product.price }}</span>
+        </div>
+    </ng-template> -->
+<!-- </p-pickList> -->

@@ -1,0 +1,120 @@
+
+.height-100{
+  padding-top: 5%;
+  }
+  .nav_logo-name{
+    font-size:20px;
+    background:  #f4f5f7;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .floating-wheel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10rem;
+    height: 10rem;
+    transition: all 0.3s ease;
+    transform-origin: bottom right;
+    transform: scale(0);
+   }
+   .floating-checkbox:checked ~ .floating .circle-icon {
+      position: absolute;
+      height: 32px;
+      width: 32px;
+      background-color: red;
+      border-radius: 50%;
+      top: 25%;
+      left: 25%;
+      border: 2px solid white;
+   }
+   .floating-checkbox:checked ~ .floating-wheel {
+    transform: scale(1);
+   }
+   .floating-action {
+    position: absolute;
+    /* background: #0A9928; */
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: White;
+    cursor: pointer;
+    box-shadow: 0 0.1rem 1rem rgba(24, 66, 154, 0.82);
+    transition: all 1s ease;
+    opacity: 0;
+   }
+
+   .floating-checkbox:checked ~ .floating-wheel .floating-action {
+    opacity: 1;
+   }
+
+   .floating-wheel .floating-action-1 {
+    right: -1rem;
+    top: 0;
+   }
+
+   .floating-wheel .floating-action-2 {
+    right: 3.4rem;
+    top: 0.5rem;
+   }
+   .floating-wheel .floating-action-3 {
+    left: 0.5rem;
+    bottom: 3.4rem;
+   }
+   .floating-wheel .floating-action-4 {
+    left: 0;
+    bottom: -1rem;
+   }
+
+.nav_logo-name::first-letter{
+  text-transform: lowercase;
+}
+.nav_logo-name::first-letter{
+text-transform :uppercase;
+}
+
+.routing-comp{
+padding-top: 4%;
+padding-right: 4%;
+}
+.nav_link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav_link:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -6px;
+  background-color:#123456; /* Set your desired background color */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow */
+  z-index: 1;
+  list-style-type: none;
+}
+
+.submenu li {
+  padding: 10px;
+}
+
+.submenu a {
+  text-decoration: none;
+  color: #ffffff; 
+}
+.active{
+  color: white;
+}
+
+

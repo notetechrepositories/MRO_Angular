@@ -1,0 +1,79 @@
+<section>
+  <!-- change after server diployed -->
+  <!-- <img *ngIf="imagePath" [src]="imagePath"  alt="e-track" width="130" height="60"> -->
+  <img src="assets\ttlogo.png" alt="e-track" width="130" height="60">
+  <div class="container">
+    <div class="left">
+      <!-- <img class="img-logo" src="assets\logo.png" alt="logo" style="margin:2px 0 2px 0;" alt="Logo" width="30" height="24" > -->
+      <form>
+        <input [formControl]="mobileFormControl" class="credentials" type="text" placeholder="Mobile Number"
+          [(ngModel)]="mobile" name="mobileNumber" />
+        <div class="mobile-validation"
+          *ngIf="mobileFormControl.invalid && mobileFormControl.touched && mobileFormControl.errors?.['required']">
+          Mobile Number is required.
+        </div>
+        <div class="mobile-validation-1" *ngIf="mobileFormControl.errors?.['minlength']">Mobile Number must be at least
+          10 Numberes long.</div>
+
+        <input [formControl]="passwordFormControl" class="credentials" type="password" placeholder="Password"
+          [(ngModel)]="pin" name="pin" />
+        <div class="password-validation"
+          *ngIf="passwordFormControl.invalid && passwordFormControl.touched && passwordFormControl.errors?.['required']">
+          Password Number is required.
+        </div>
+        <div class="password-validation-1" *ngIf="passwordFormControl.errors?.['minlength']"> Password must be at least
+          4 Numberes long.</div>
+
+        <input type="submit" name="login" id="login" class="login" (click)="login()" value="Log In">
+        <div class="line">
+          <hr>
+          <hr>
+        </div>
+        <br>
+      </form>
+      <span (click)="showDialog()" icon="pi pi-external-link"  style="cursor: pointer;" label="Show">Forgot Password?</span>
+      <p-dialog  [(visible)]="visible" [style]="{width: '30vw'}">
+        <h1>Forgot Password</h1>
+        <img class="forgot-img" src="assets/Forgot password-cuate.png" alt="forogot-password" style="margin: 3px;"
+          width="60px" height="50px">
+        <div class="parent-container">
+
+          <div class="d-flex ">
+            <input type="text" class="form-control me-2" placeholder="Enter Your PhoneNumber" maxlength="10"
+              [(ngModel)]="mobilenumber" [formControl]="phoneNumberFormControl" required
+              (keyup)="checkValidity($event)">
+            <button class="small-height-btn" (click)="submit()">submit</button>
+          </div>
+        </div>
+        <div class="parent-container" *ngIf="displayErrorMessage">
+          <div class="d-flex ">
+            <div
+              *ngIf="phoneNumberFormControl.invalid && (phoneNumberFormControl.dirty || phoneNumberFormControl.touched)">
+              <div class="error-message " *ngIf="phoneNumberFormControl.hasError('required')">
+                Phone number is required.
+              </div>
+            </div>
+          </div>
+          <div class="parent-container">
+            <div class="flex-row">
+              <div class="d-flex ">
+                <div class="error-message " *ngIf="phoneNumberFormControl.hasError('pattern')">
+                  Please enter a valid 10-digit number.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="parent-container">
+          <div class="d-flex ">
+
+            <p class="error-message" *ngIf="numberNotRegisterd">phone number is not registered</p>
+          </div>
+
+
+        </div>
+      </p-dialog>
+
+    </div>
+  </div>
+</section>

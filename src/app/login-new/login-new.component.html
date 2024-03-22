@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="container height-100 d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+            <div class="card p-2 text-center">
+                <h6>Please enter the one-time password <br> to verify your account</h6>
+                <div> <span>A code has been sent to</span> <small>{{this.email}}</small> </div>
+                <div class="countdown">Otp will be experied after {{countDown}}</div>
+                <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+                    <input class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" [(ngModel)]="otp1" (keyup)="onOtpInput($event, nextInput)" #firstInput /> 
+                    <input class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" [(ngModel)]="otp2" (keyup)="onOtpInput($event, nextInput2)" #nextInput/> 
+                    <input class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" [(ngModel)]="otp3" (keyup)="onOtpInput($event, nextInput3)" #nextInput2/>
+                     <input class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" [(ngModel)]="otp4" (keyup)="onOtpInput($event)" #nextInput3/>
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn btn-danger px-4 validate" (click)="validate()">Verify</button>
+                  
+                </div>
+                
+                
+
+                <!-- <div class="mt-4">
+                    <button class="back-btn" (click)="back()">Back</button>
+                </div> -->
+            </div>
+            <div class="card p-2 text-center" *ngIf="cardVisibile2">
+                <h5>Please enter your New password</h5>
+                <div id="otp" class="inputs-box d-flex flex-row justify-content-center mt-2">
+                    <input class="m-2 text-center form-control rounded" type="text" id="otpInput" maxlength="4"
+                        [(ngModel)]="newPassword">
+
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn-update px-4 validate" (click)="pinUpdation()">Update Pin</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<img class="company-logo" src="assets\ttlogo.png" alt="e-track" width="130" height="60">
+<div class="l-login">
+    <div class="square blue-dark left-bottom hu_hu_animation ">
+    </div>
+    <div class="square red top-right hu__hu_r_ ">
+        <!-- <div class="square red top-right hu__hu_r_ "> -->
+    </div>
+    <div class="l-login__form">
+        <div class="qr-code-container">
+            <div class="loader-container">
+                <div *ngIf="isLoading" class="loader"><img src="/assets/logo.png" alt="Loading" class="loading-image">
+                </div>
+            </div>
+            <div class="qrgenerator" *ngIf="qrCodeValue">
+                <img *ngIf="!isLoading" [src]="qrDataUrl" alt="qrcode" width="200px">
+                <img src="assets\ttlogo.png" alt="e-track" width="130" height="60" class="qr-logo">
+                <h5>Scan from Mobile E-track</h5>
+                <p id="step1">1.Open e-track from your phone</p>
+                <p id="step2">2.Scan using Qr code reader</p>
+                <a class="login-phn" routerLink="/login">Or Login Using PhoneNumber</a>
+            </div>
+        </div>
+    </div>
+</div>

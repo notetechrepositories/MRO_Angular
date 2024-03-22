@@ -1,0 +1,63 @@
+<div class="outer">
+    <div class="container  p-4 d-flex justify-content-center align-items-center">
+        <form class="row g-3"> 
+            <div class="{{colType}} d-flex justify-content-start">
+                <a (click)="back()"><i class="fa fa-arrow-circle-left" style="font-size:30px;color:black;"></i></a>
+            </div>
+            <div class="col-6 d-flex justify-content-end"  *ngIf="status=='false' && permission.permission_update=='y'" >
+                <a (click)="isEdit()"> <i class="fa fa-edit" style="font-size:30px;color:black;"></i></a>
+                
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4"  class="form-label">Office Name</label>
+                <input type="email" class="form-control" id="officeName" name="office_name" [(ngModel)]="keyvalueArray.office_name" [disabled]="!isEnable" >
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone_no" name="phone_no" [(ngModel)]="keyvalueArray.phone_no" [disabled]="!isEnable">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4"  class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="keyvalueArray.email" [disabled]="!isEnable" >
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="keyvalueArray.mobile_no" [disabled]="!isEnable">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address_1" name="address_1" [(ngModel)]="keyvalueArray.address_1" [disabled]="!isEnable">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" id="address_2"  name="address_2" [(ngModel)]="keyvalueArray.address_2" [disabled]="!isEnable">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity" [disabled]="!isEnable">
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select" [disabled]="!isEnable">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" [disabled]="!isEnable" >
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

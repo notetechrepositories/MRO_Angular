@@ -1,0 +1,39 @@
+<div class="parent-container">
+  <!-- <div class="profile-title"> <h1 >Profile</h1></div> -->
+  <div class="main-container">
+    <div class="profile-image">
+      <div class="picture" [class.no-hover]="!isEnable">
+        <img #PicturePreview src="logo.png" class="picture-src" title="Profile Preview">
+        <input type="file" id="profile-picture" (change)="onFileSelected($event)" [disabled]="!isEnable">
+      </div>
+    </div>
+    <!-- <div class="profile-fields">
+      <div class="inner-profile-fields">
+        <div class="fields-container">
+          <div class="edit-container">
+            <button class="btn-edit" (click)="isEdit()"> {{ isEnable ? 'Cancel' : 'Edit' }}</button>
+          </div>
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="First name" [(ngModel)]="firstnameContent"
+              [disabled]="!isEnable">
+            <input type="text" class="form-input" placeholder="Last name" [(ngModel)]="lastNameContent"
+              [disabled]="!isEnable">
+          </div>
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="Email" [(ngModel)]="EmailContent" [disabled]="!isEnable">
+            <input type="text" class="form-input" placeholder="Phone number" [(ngModel)]="PhoneContent"
+              [disabled]="!isEnable">
+          </div>
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="Address" [(ngModel)]="addressContent"
+              [disabled]="!isEnable">
+            <input type="text" class="form-input" placeholder="Pincode" [(ngModel)]="pinContent" [disabled]="!isEnable">
+          </div>
+          <div class="save-container">
+            <button class="btn-save" (click)="saveChanges()">Save Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="grad"> </div>
+    </div> -->
+  </div>

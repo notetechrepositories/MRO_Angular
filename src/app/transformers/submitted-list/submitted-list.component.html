@@ -1,0 +1,45 @@
+<p-tabView>
+    <p-tabPanel header="Submitted List">
+        <p>
+            <p-table
+            [value]="customers"
+            [paginator]="true"
+            [rows]="10"
+            selectionMode="single"
+            [showCurrentPageReport]="true"
+            [tableStyle]="{ 'min-width': '50rem' }"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[10, 25, 50]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Updates</th>
+                        <th>UpdatedDate</th>
+                        <th>UpdatedBy</th>
+                        <th>Location</th>
+                        <th>SerialNo</th>
+                        <th>Type</th>
+                        <th>status</th>
+                        <th> </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-customer >
+                    <tr [ngStyle]="statusColor(customer.Updates)">
+                        <td >
+                           {{ customer.Updates }}
+                        </td>
+                        <td>{{ customer.UpdatedDate }}</td>
+                        <td>{{ customer.UpdatedBy }}</td>
+                        <td>{{ customer.Location }}</td>
+                        <td>{{ customer.SerialNo }}</td>
+                        <td>{{ customer.Type }}</td>
+                        <td>{{ customer.Status }}</td>
+                        <td><a href="">
+                            <li class="bx bx-trash" style="color: rgb(173, 8, 8);"></li>
+                        </a></td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p>
+    </p-tabPanel>
+</p-tabView>
+

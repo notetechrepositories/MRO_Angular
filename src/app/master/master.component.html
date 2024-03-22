@@ -1,0 +1,45 @@
+<body id="body-pd ">
+  <header class="header" style="margin-bottom: 2;" id="header">
+    <div class=""> <img src="assets\ttlogo.png" alt="e-track" routerLink="/master/user-profile" width="110" height="50">
+    </div>
+  </header>
+  <div  id="nav-bar" class="l-navbar"  [ngClass]="{ 'show': isSidebarOpen }" (mouseenter)="openSidebar()" (mouseleave)="closeSidebar()">
+    <nav class="nav">
+      <div>
+        <div class="user-tag">
+          <a routerLink="/master/user-profile" class="nav_logo">
+            <i class="sider_img">
+              <img src="https://i.imgur.com/hczKIze.jpg" alt="">
+            </i>
+            <span class="nav_logo-name">Hello, {{userDetails}}</span>
+          </a>
+        </div>
+        
+  
+        <div class="nav_list" >
+          <a  routerLink="/master/dashboard" class="nav_link " routerLinkActive="active">
+            <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span>
+          </a>
+  
+          <ng-container *ngFor="let menuItem of menuDatas">
+            <a [routerLink]="'/master' + menuItem.navigatorWithPgmId" class="nav_link" routerLinkActive="active">
+              <i class='bx bx-folder nav_icon'></i> <span class="nav_name">{{ menuItem.menu_name }}</span>
+            </a>
+          </ng-container>
+  
+          <a routerLink="/master/aboutus" class="nav_link" routerLinkActive="active">
+            <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">About Us</span>
+          </a>
+        </div>
+      </div>
+      <a routerLink="" class="nav_link" (click)="logOut()">
+        <i class='bx bx-log-out nav_icon' ></i> <span class="nav_name">LogOut</span>
+      </a>
+    </nav>
+  </div>
+  <div class="sub-menu">
+    <app-nav-bar> </app-nav-bar>
+  </div>
+  <div class="routing-comp">
+    <router-outlet> </router-outlet>
+  </div>
