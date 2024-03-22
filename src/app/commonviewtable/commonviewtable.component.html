@@ -1,0 +1,43 @@
+<p-toast></p-toast>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+<p-toolbar styleClass="mb-4 gap-2">
+    
+   
+    <ng-template pTemplate="left">
+        <span *ngFor="let level of levelDisplay" class="{{level.class}}" (click)="selected(level.levelId,level.levelNameOld)"> &nbsp;{{transform(level.levelName|uppercase) }}</span> 
+        
+    </ng-template>
+</p-toolbar>
+
+<div class="card">
+
+   
+    <p-table 
+    [(selection)]="selectedProducts"
+    [rows]="3"
+    [paginator]="true"
+    [value]="filteredProducts" dataKey="code" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th>{{heading.key11}}</th>
+                <th>{{heading.key22}}</th>
+                <th>{{heading.key33}}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr >
+                <td>
+                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                </td>
+                <td (click)="selected(product,'')"><div [innerHTML]="preprocessValue(product.value)"></div></td>
+                <td (click)="selected(product,'')"><div [innerHTML]="preprocessValue(product.value1)"></div></td>
+                <td (click)="selected(product,'')"><div [innerHTML]="preprocessValue(product.value2)"></div></td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+

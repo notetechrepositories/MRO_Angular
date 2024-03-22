@@ -17,6 +17,8 @@ import { CommonviewlistComponent } from './commonviewlist/commonviewlist.compone
 import { CommonviewdetailsComponent } from './commonviewdetails/commonviewdetails.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { OfficedetailsComponent } from './officedetails/officedetails.component';
+import { CommonviewtableComponent } from './commonviewtable/commonviewtable.component';
+import { PermissionComponent } from './permission/permission.component';
 const routes: Routes = [
   {
     path: '',
@@ -53,6 +55,10 @@ const routes: Routes = [
         path: 'aboutus',
         component: AboutUsComponent,
       },
+      {
+        path: 'commonviewlisttwo/:viewDetails',
+        component: CommonviewtableComponent,
+      },
       // {
       //   path: 'transformer/:viewDetails',
       //   component: TransformersComponent,
@@ -60,6 +66,10 @@ const routes: Routes = [
       {
         path: 'submitted-list',
         component: SubmittedListComponent
+      },
+      {
+        path: 'permission/:viewDetails',
+        component: PermissionComponent,
       },
       {
         path: 'commonviewlist/:viewDetails',

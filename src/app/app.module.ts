@@ -46,6 +46,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessageModule } from 'primeng/message';
 import { AnimateModule } from 'primeng/animate';
 import { MessagesModule } from 'primeng/messages';
+import { CommonviewtableComponent } from './commonviewtable/commonviewtable.component';
+import { PermissionComponent } from './permission/permission.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +66,8 @@ import { MessagesModule } from 'primeng/messages';
     CommonviewdetailsComponent,
     UserdetailsComponent,
     OfficedetailsComponent,
+    CommonviewtableComponent,
+    PermissionComponent,
   ],
   imports: [
     BrowserModule,

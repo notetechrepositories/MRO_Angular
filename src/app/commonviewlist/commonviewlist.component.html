@@ -56,7 +56,7 @@
     </ng-template>
 
     <ng-template pTemplate="right">
-      <button pButton pRipple label="New" icon="pi pi-plus" *ngIf="insertpermisson.permission_insert=='y'" [disabled]="selectedProducts.length>0" class="p-button-primary mr-2" (click)="addTransformer()" ></button>
+      <button pButton pRipple label="New" icon="pi pi-plus" *ngIf="insertpermisson.permission_insert=='y'" [disabled]="selectedProducts.length>0" class="p-button-primary mr-2" (click)="add()" ></button>
       <button pButton pRipple  icon="pi pi-trash" *ngIf="insertpermisson.permission_delete=='y'" (click)="deleteSelectedProducts()" class="p-button-danger mr-2"  [disabled]="!selectedProducts || !selectedProducts.length"></button>
      <button pButton pRipple icon="pi pi-pencil" *ngIf="insertpermisson.permission_update=='y'" (click)="edit(selectedProducts)"   [disabled]="selectedProducts.length>1 ||selectedProducts.length==0" class="p-button-primary"></button>
      <!-- <span class="p-input-icon-left">
